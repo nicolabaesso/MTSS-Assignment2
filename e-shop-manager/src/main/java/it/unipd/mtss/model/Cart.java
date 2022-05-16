@@ -1,5 +1,10 @@
 package it.unipd.mtss.model;
 import it.unipd.mtss.business.*;
+import it.unipd.mtss.model.EItem.itemType;
+
+
+
+
 import java.util.*;
 
 public class Cart implements Bill{
@@ -8,8 +13,6 @@ public class Cart implements Bill{
 
     public Cart(){
         cart = new ArrayList<EItem>();
-        EItem e=new EItem("Processor","Intel Pentium G3420",10.60);
-        cart.add(0,e);
         User u=new User();
         user=u;
     }
@@ -43,10 +46,36 @@ public class Cart implements Bill{
     public double getOrderPrice(List<EItem> itemsOrdered, User user){
         double pric=0.0;
         int i=0;
+        double minProc = getLeastExpensiveProcessor(itemsOrdered);
         while(i<itemsOrdered.size()){
             pric += itemsOrdered.get(i).getPrice();
             i++;
         }
-        return pric;
+        
+        return pric-minProc;
+    }
+
+    public double getLeastExpensiveProcessor(List<EItem> itemsOrdered){
+        int count = 0;
+        int i =0;
+        double minProcessor = 9000;
+        while(i<itemsOrdered.size()){
+            if(itemsOrdered.get(i).getType() == itemType.Processor){
+                count++;
+                if(itemsOrdered.get(i).getPrice() < minProcessor){
+                    minProcessor = itemsOrdered.get(i).getPrice();
+                }
+               
+            }
+            i++;
+        }
+        if(count >= 5){
+             minProcessor = minProcessor /2;
+        }
+        else{
+             minProcessor = 0;
+        }
+        return minProcessor;
+
     }
 }
