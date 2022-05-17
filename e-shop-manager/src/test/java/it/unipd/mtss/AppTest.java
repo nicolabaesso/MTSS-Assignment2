@@ -30,16 +30,50 @@ public class AppTest {
         EItem proc3=new EItem("Processor", "Amd FX-8350", 100.00);
         EItem proc4=new EItem("Processor", "Intel i9-9900k", 500.00);
         EItem proc5=new EItem("Processor", "Intel i5-750", 75.00);
+        EItem proc6=new EItem("Processor", "Intel Potato but better", 80.00);
         Cart cart=new Cart();
         cart.addElement(proc);
         cart.addElement(proc2);
         cart.addElement(proc3);
         cart.addElement(proc4);
         cart.addElement(proc5);
+        cart.addElement(proc6);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
       
-        assertEquals(1137.50,total,0);
+        assertEquals(1092.00,total,0);
     }
+
+    @Test
+    public void leastExpensiveMouseShouldBeFree(){
+        EItem proc = new EItem("Mouse", "Gigino il topolino", 22.00);
+        EItem proc2=new EItem("Mouse", "Mouse Lidl Deluxe", 38.00);
+        EItem proc3=new EItem("Mouse", "Mouse Lavico", 120.00);
+        EItem proc4=new EItem("Mouse", "Mouse verde vecchio", 15.00);
+        EItem proc5=new EItem("Mouse", "Mouse standard", 12.00);
+        EItem proc6= new EItem("Mouse", "Mini Mouse", 5.00);
+        EItem proc7=new EItem("Mouse", "Mini Mouse Apple", 50.00);
+        EItem proc8=new EItem("Mouse", "Mouse Apple", 150.00);
+        EItem proc9=new EItem("Mouse", "Mouse leggermente usurato", 7.00);
+        EItem proc10=new EItem("Mouse", "Mouse Apple distrutto", 55.00);
+        EItem proc11 = new EItem("Mouse", "Mouse Asusanna", 12.00);
+        EItem proc12=new EItem("Mouse", "Mouse rosa", 10.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        cart.addElement(proc3);
+        cart.addElement(proc4);
+        cart.addElement(proc5);
+        cart.addElement(proc6);
+        cart.addElement(proc7);
+        cart.addElement(proc8);
+        cart.addElement(proc9);
+        cart.addElement(proc10);
+        cart.addElement(proc11);
+        cart.addElement(proc12);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(491.00,total,0);
+    }
+
     @Test
     public void sameNumberOfKeyboardAndMouse(){
         EItem proc = new EItem("Keyboard", "Fnatic ministreak", 100.00);
@@ -54,6 +88,31 @@ public class AppTest {
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
       
         assertEquals(224.00,total,0);
+    }
+
+    @Test
+    public void shouldGetADiscountIfAmountTooHigh(){
+        EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc2=new EItem("Motherboard", "MSI X453G", 300.00);
+        EItem proc3=new EItem("Mouse", "Mouse Gaming Apple", 200.00);
+        EItem proc4=new EItem("Keyboard", "Tastiera Apple Luccicosa", 500.00);
+        EItem proc5=new EItem("Processor", "Intel i9-9900k", 75.00);
+        EItem proc6= new EItem("Motherboard", "ASUS TUF 2565D", 300.00);
+        EItem proc7=new EItem("Mouse", "Mouse Lidl", 38.00);
+        EItem proc8=new EItem("Processor", "Intel Xeon 1231-v3", 50.00);
+        EItem proc9=new EItem("Motherboard", "ASusanna non distrutta", 75.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        cart.addElement(proc3);
+        cart.addElement(proc4);
+        cart.addElement(proc5);
+        cart.addElement(proc6);
+        cart.addElement(proc7);
+        cart.addElement(proc8);
+        cart.addElement(proc9);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(1564.20,total,0);
     }
 
     @Test
@@ -128,6 +187,16 @@ public class AppTest {
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         int numberOfElements = cart.getNumberOfElements(cart.getCart());
         assertEquals(32,numberOfElements,0);
-        assertEquals(7512.50,total,0);
+    }
+
+    @Test
+    public void shouldIncreaseTheAmountIfTooLow(){
+        EItem proc= new EItem("Mouse", "Mouse nucleare", 5.00);
+        EItem proc2= new EItem("Tastiera", "Tastiera putrida", 4.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(11,total,0);
     }
 }

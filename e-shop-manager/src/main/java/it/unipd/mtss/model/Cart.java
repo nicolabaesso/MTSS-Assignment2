@@ -1,10 +1,7 @@
 package it.unipd.mtss.model;
+
 import it.unipd.mtss.business.*;
 import it.unipd.mtss.model.EItem.itemType;
-
-
-
-
 import java.util.*;
 
 public class Cart implements Bill{
@@ -53,16 +50,25 @@ public class Cart implements Bill{
     }
 
     public double getOrderPrice(List<EItem> itemsOrdered, User user){
-        double pric=0.0;
+        double price=0.0;
         int i=0;
         double minProc = getLeastExpensiveProcessor(itemsOrdered);
+        double minMouse = getLeastExpensiveMouse(itemsOrdered);
         double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);
+        double discount = minProc+minMouse+minItem;
         while(i<itemsOrdered.size()){
-            pric += itemsOrdered.get(i).getPrice();
+            price += itemsOrdered.get(i).getPrice();
             i++;
         }
-        
-        return pric-minProc - minItem;
+        if(price > 1000.0){
+         price = price-(price*0.10);
+        }
+        else{
+            if(price < 10.0){
+                price += 2;
+            }
+        }
+        return price-discount;
     }
 
     public double getLeastExpensiveProcessor(List<EItem> itemsOrdered){
@@ -79,7 +85,7 @@ public class Cart implements Bill{
             }
             i++;
         }
-        if(count >= 5){
+        if(count > 5){
              minProcessor = minProcessor /2;
         }
         else{
@@ -87,6 +93,28 @@ public class Cart implements Bill{
         }
         return minProcessor;
 
+    }
+
+    public double getLeastExpensiveMouse(List<EItem> itemsOrdered){
+        int count = 0;
+        int i =0;
+        double minPriceMouse = 90000;
+        while(i<itemsOrdered.size()){
+            if(itemsOrdered.get(i).getType() == itemType.Mouse){
+                count++;
+                if(itemsOrdered.get(i).getPrice() < minPriceMouse){
+                    minPriceMouse = itemsOrdered.get(i).getPrice();
+                }
+               
+            }
+            i++;
+        }
+        if(count > 10){
+            return minPriceMouse;
+        }
+        else{
+            return 0;
+        }
     }
 
     public double getLeastExpensiveKeyboardOrMouse(List<EItem> itemsOrdered){
