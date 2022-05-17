@@ -10,7 +10,7 @@ import java.util.*;
 public class Cart implements Bill{
     private List<EItem> cart;
     private User user;
-
+    private int numberOfItems = 0;
     public Cart(){
         cart = new ArrayList<EItem>();
         User u=new User();
@@ -21,6 +21,7 @@ public class Cart implements Bill{
         cart = new ArrayList<EItem>();
         cart=c;
         user=u;
+        numberOfItems = cart.size();
     }
 
     public List<EItem> getCart() {
@@ -33,7 +34,15 @@ public class Cart implements Bill{
 
     public void addElement(EItem e) {
         cart.add(e);
+        numberOfItems++;
     }
+    public int getNumberOfElements(List<EItem> itemsOrdered){
+        if(numberOfItems > 30){
+            System.out.print("Too many elements on Cart!");
+        }
+        return  numberOfItems;
+    }
+   
 
     public User getUser() {
         return user;
@@ -47,12 +56,13 @@ public class Cart implements Bill{
         double pric=0.0;
         int i=0;
         double minProc = getLeastExpensiveProcessor(itemsOrdered);
+        double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);
         while(i<itemsOrdered.size()){
             pric += itemsOrdered.get(i).getPrice();
             i++;
         }
         
-        return pric-minProc;
+        return pric-minProc - minItem;
     }
 
     public double getLeastExpensiveProcessor(List<EItem> itemsOrdered){
@@ -76,6 +86,35 @@ public class Cart implements Bill{
              minProcessor = 0;
         }
         return minProcessor;
+
+    }
+
+    public double getLeastExpensiveKeyboardOrMouse(List<EItem> itemsOrdered){
+        int countMouse = 0;
+        int countKeyboard = 0;
+        int i =0;
+        double minItem = 9000;
+        while(i<itemsOrdered.size()){
+            if(itemsOrdered.get(i).getType() == itemType.Keyboard){
+                countKeyboard++;
+                if(itemsOrdered.get(i).getPrice() < minItem){
+                minItem = itemsOrdered.get(i).getPrice();
+                }
+            }
+            if(itemsOrdered.get(i).getType() == itemType.Mouse){
+                countMouse++;
+                if(itemsOrdered.get(i).getPrice() < minItem){
+                    minItem = itemsOrdered.get(i).getPrice();
+             }
+            }
+            i++;
+        }
+        if(countMouse == countKeyboard && countMouse != 0 && countKeyboard != 0){
+            return minItem;
+        }
+        else{
+            return 0;
+        }
 
     }
 }
