@@ -3,8 +3,8 @@
         "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 <module name="Checker">
     <module name="Header">
-        <property name="headerFile" value="java.header"/>
-        <!--<property name="fileExtensions" value="java"/>-->
+      <property name="header"
+        value="////////////////////////////////////////////////////////////////////\n// [Andrea] [Veronese] [1225411]\n// [Nicola] [Baesso] [2011877]\n////////////////////////////////////////////////////////////////////"/>
     </module>
 
     <module name="FileLength">
