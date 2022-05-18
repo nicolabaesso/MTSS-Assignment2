@@ -4,6 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
 import it.unipd.mtss.model.Cart;
+import it.unipd.mtss.model.EItem;
 
 
 public class App{
