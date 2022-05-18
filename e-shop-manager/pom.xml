@@ -74,6 +74,9 @@
         <groupId>org.eluder.coveralls</groupId>
         <artifactId>coveralls-maven-plugin</artifactId>
         <version>4.3.0</version>
+        <configuration>
+          <repoToken>secret.TOKENBELLO</repoToken>
+        </configuration>
         <dependencies>
           <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -101,7 +104,7 @@
         </configuration>
         <executions>
           <execution>
-            <id>checkstyle</id>
+            <id>package</id>
             <phase>package</phase>
             <goals>
               <goal>checkstyle</goal>

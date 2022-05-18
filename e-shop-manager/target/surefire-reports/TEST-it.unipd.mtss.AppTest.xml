@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.265" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.AppTest" time="0.247" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/test-classes:/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/classes:/home/nicola/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nicola/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/test-classes:/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/classes:/home/nicola/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nicola/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Debian"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://tracker.debian.org/openjdk-17"/>
@@ -12,9 +12,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IT"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter16816745501986873773.jar /media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire 2022-05-18T22-47-48_955-jvmRun1 surefire17243820303839946885tmp surefire_016832015257176548282tmp"/>
+    <property name="sun.java.command" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter938294626706445818.jar /media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire 2022-05-18T23-48-05_479-jvmRun1 surefire5279711578650405061tmp surefire_03277303766971691942tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/test-classes:/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/classes:/home/nicola/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nicola/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/test-classes:/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/classes:/home/nicola/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nicola/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/nicola"/>
     <property name="user.language" value="it"/>
@@ -22,12 +22,12 @@
     <property name="java.version.date" value="2022-04-19"/>
     <property name="java.home" value="/usr/lib/jvm/java-17-openjdk-amd64"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager"/>
+    <property name="basedir" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter16816745501986873773.jar"/>
+    <property name="surefire.real.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter938294626706445818.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.3+7-Debian-1deb11u1"/>
     <property name="user.name" value="nicola"/>
@@ -40,7 +40,7 @@
     <property name="java.vendor.url.bug" value="https://bugs.debian.org/openjdk-17"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="17.0.3"/>
-    <property name="user.dir" value="/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager"/>
+    <property name="user.dir" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
@@ -51,12 +51,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="tooMuchItemsOnCart" classname="it.unipd.mtss.AppTest" time="0.022"/>
-  <testcase name="leastExpensiveProcessorShouldBeHalf" classname="it.unipd.mtss.AppTest" time="0"/>
-  <testcase name="shouldget10FreeRandomOrdersIfMinorenne" classname="it.unipd.mtss.AppTest" time="0.004"/>
-  <testcase name="shouldGetADiscountIfAmountTooHigh" classname="it.unipd.mtss.AppTest" time="0.001"/>
+  <testcase name="tooMuchItemsOnCart" classname="it.unipd.mtss.AppTest" time="0.032"/>
+  <testcase name="leastExpensiveProcessorShouldBeHalf" classname="it.unipd.mtss.AppTest" time="0.001"/>
+  <testcase name="shouldget10FreeRandomOrdersIfMinorenne" classname="it.unipd.mtss.AppTest" time="0.002"/>
+  <testcase name="shouldGetADiscountIfAmountTooHigh" classname="it.unipd.mtss.AppTest" time="0"/>
   <testcase name="shouldGetTheCorrectAmount" classname="it.unipd.mtss.AppTest" time="0"/>
-  <testcase name="leastExpensiveMouseShouldBeFree" classname="it.unipd.mtss.AppTest" time="0.01"/>
-  <testcase name="shouldIncreaseTheAmountIfTooLow" classname="it.unipd.mtss.AppTest" time="0.001"/>
+  <testcase name="leastExpensiveMouseShouldBeFree" classname="it.unipd.mtss.AppTest" time="0"/>
+  <testcase name="shouldIncreaseTheAmountIfTooLow" classname="it.unipd.mtss.AppTest" time="0"/>
   <testcase name="sameNumberOfKeyboardAndMouse" classname="it.unipd.mtss.AppTest" time="0"/>
 </testsuite>

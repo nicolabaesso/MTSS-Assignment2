@@ -1,8 +1,14 @@
+////////////////////////////////////////////////////////////////////
+// [Andrea] [Veronese] [1225411]
+// [Nicola] [Baesso] [2011877]
+////////////////////////////////////////////////////////////////////
 package it.unipd.mtss.model;
 
-import it.unipd.mtss.business.*;
+import it.unipd.mtss.business.exception.BillException;
+import it.unipd.mtss.business.Bill;
 import it.unipd.mtss.model.EItem.itemType;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.lang.Math;
 
 public class Cart implements Bill{

@@ -1,7 +1,9 @@
+////////////////////////////////////////////////////////////////////
+// [Andrea] [Veronese] [1225411]
+// [Nicola] [Baesso] [2011877]
+////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
-//import it.unipd.mtss.business.*;
-//import it.unipd.mtss.business.Bill;
-import it.unipd.mtss.model.*;
+import it.unipd.mtss.model.Cart;
 
 
 public class App{

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">e-shop-manager</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss.model</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////
+// [Andrea] [Veronese] [1225411]
+// [Nicola] [Baesso] [2011877]
+////////////////////////////////////////////////////////////////////
+package it.unipd.mtss.model;
+public class User {
+    private String FC;
+    private String name;
+    private String surname;
+    private int age;
+
+<span class="fc" id="L12">    public User() {</span>
+<span class="fc" id="L13">        FC=&quot;AAAA&quot;;</span>
+<span class="fc" id="L14">        name=&quot;John&quot;;</span>
+<span class="fc" id="L15">        surname=&quot;Maven&quot;;</span>
+<span class="fc" id="L16">        age=16;</span>
+<span class="fc" id="L17">    }</span>
+
+<span class="fc" id="L19">    public User(String fc, String n, String s, int a) {</span>
+<span class="fc" id="L20">        FC=fc;</span>
+<span class="fc" id="L21">        name=n;</span>
+<span class="fc" id="L22">        surname=s;</span>
+<span class="fc" id="L23">        age=a;</span>
+<span class="fc" id="L24">    }</span>
+
+    public String getFC() {
+<span class="nc" id="L27">        return FC;</span>
+    }
+
+    public void setFC(String fC) {
+<span class="nc" id="L31">        FC = fC;</span>
+<span class="nc" id="L32">    }</span>
+
+    public String getName() {
+<span class="nc" id="L35">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L39">        this.name = name;</span>
+<span class="nc" id="L40">    }</span>
+
+    public String getSurname() {
+<span class="nc" id="L43">        return surname;</span>
+    }
+
+    public void setSurname(String surname) {
+<span class="nc" id="L47">        this.surname = surname;</span>
+<span class="nc" id="L48">    }</span>
+
+    public int getAge() {
+<span class="nc" id="L51">        return age;</span>
+    }
+
+    public void setAge(int age) {
+<span class="nc" id="L55">        this.age = age;</span>
+<span class="nc" id="L56">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
