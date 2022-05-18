@@ -3,11 +3,58 @@ package it.unipd.mtss.model;
 import it.unipd.mtss.business.*;
 import it.unipd.mtss.model.EItem.itemType;
 import java.util.*;
+import java.lang.Math;
 
 public class Cart implements Bill{
     private List<EItem> cart;
     private User user;
     private int numberOfItems = 0;
+    private int timeOrder = 1830;
+    private int orderNumber = 0;
+    private boolean isGifted = false;
+
+
+    public boolean checkTime(){
+        if(timeOrder <= 2359 && timeOrder >= 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean checkGiftTime(){
+        if(timeOrder >= 1800 && timeOrder <= 1859 || timeOrder == 1900){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+   
+    public boolean isGifted() {
+        return isGifted;
+    }
+
+    public void setGifted(boolean isGifted) {
+        this.isGifted = isGifted;
+    }
+
+    public int getNumberOfItems() {
+        return numberOfItems;
+    }
+
+    public void setNumberOfItems(int numberOfItems) {
+        this.numberOfItems = numberOfItems;
+    }
+
+    public int getTimeOrder() {
+        return timeOrder;
+    }
+
+    public void setTimeOrder(int timeOrder) {
+        this.timeOrder = timeOrder;
+    }
+
     public Cart(){
         cart = new ArrayList<EItem>();
         User u=new User();
@@ -47,6 +94,14 @@ public class Cart implements Bill{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public double getOrderPrice(List<EItem> itemsOrdered, User user){

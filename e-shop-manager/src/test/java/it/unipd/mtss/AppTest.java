@@ -2,6 +2,8 @@ package it.unipd.mtss;
 import it.unipd.mtss.*;
 import it.unipd.mtss.model.Cart;
 import it.unipd.mtss.model.EItem;
+import it.unipd.mtss.model.OrderCounter;
+import it.unipd.mtss.model.User;
 
 import static org.junit.Assert.assertEquals;
 
@@ -199,4 +201,152 @@ public class AppTest {
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         assertEquals(11,total,0);
     }
+
+    @Test
+    public void shouldget10FreeRandomOrdersIfMinorenne(){
+        EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc2=new EItem("Processor", "Intel i5 1035G1", 300.00);
+        EItem proc3=new EItem("Processor", "Amd FX-8350", 100.00);
+        EItem proc4=new EItem("Processor", "Intel i9-9900k", 500.00);
+        EItem proc5=new EItem("Processor", "Intel i5-750", 75.00);
+        EItem proc6= new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc7=new EItem("Processor", "Intel i5 1035G1", 300.00);
+        EItem proc8=new EItem("Processor", "Amd FX-8350", 100.00);
+        EItem proc9=new EItem("Processor", "Intel i9-9900k", 500.00);
+        EItem proc10=new EItem("Processor", "Intel i5-750", 75.00);
+        EItem proc11 = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc12 = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc13=new EItem("Processor", "Intel i5 1035G1", 300.00);
+        EItem proc14=new EItem("Processor", "Amd FX-8350", 100.00);
+        EItem proc15=new EItem("Processor", "Intel i9-9900k", 500.00);
+        EItem proc16=new EItem("Processor", "Intel i5-750", 75.00);
+        EItem proc17= new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        EItem proc18=new EItem("Processor", "Intel i5 1035G1", 300.00);
+        EItem proc19=new EItem("Processor", "Amd FX-8350", 100.00);
+        EItem proc20=new EItem("Processor", "Intel i9-9900k", 500.00);
+        EItem proc21=new EItem("Processor", "Intel i5-750", 75.00);
+        EItem proc22 = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
+        User u = new User("A","Alberto", "Bigioggero", 10);
+        User u2 = new User("B","Giovanni", "Paolo", 8);
+        User u3 = new User("C","Paolino", "Filè", 12);
+        User u4 = new User("D","Gilberto", "Marchiori", 10);
+        User u5 = new User("E","Nicola", "Miotti", 14);
+        User u6 = new User("F","Alberto", "Fontolon", 16);
+        User u7 = new User("G","Sara", "Filaretti", 17);
+        User u8 = new User("H","Marta", "Greggio", 9);
+        User u9 = new User("I","Maria", "Pia", 10);
+        User u10 = new User("J","Franco", "Stefanini", 12);
+        User u11 = new User("K","Matteo", "Marangon", 15);
+        User u12 = new User("A","Alberto", "Bigioggero", 10);
+        User u13 = new User("B","Giovanni", "Paolo", 8);
+        User u14 = new User("C","Paolino", "Filè", 12);
+        User u15 = new User("D","Gilberto", "Marchiori", 10);
+        User u16 = new User("E","Nicola", "Miotti", 14);
+        User u17 = new User("F","Alberto", "Fontolon", 16);
+        User u18 = new User("G","Sara", "Filaretti", 17);
+        User u19 = new User("H","Marta", "Greggio", 9);
+        User u20 = new User("I","Maria", "Pia", 10);
+        User u21 = new User("J","Franco", "Stefanini", 12);
+        User u22 = new User("K","Matteo", "Marangon", 15);
+        Cart cart=new Cart();
+        Cart cart2=new Cart();
+        Cart cart3=new Cart();
+        Cart cart4=new Cart();
+        Cart cart5=new Cart();
+        Cart cart6=new Cart();
+        Cart cart7=new Cart();
+        Cart cart8=new Cart();
+        Cart cart9=new Cart();
+        Cart cart10=new Cart();
+        Cart cart11=new Cart();
+        Cart cart12=new Cart();
+        Cart cart13=new Cart();
+        Cart cart14=new Cart();
+        Cart cart15=new Cart();
+        Cart cart16=new Cart();
+        Cart cart17=new Cart();
+        Cart cart18=new Cart();
+        Cart cart19=new Cart();
+        Cart cart20=new Cart();
+        Cart cart21=new Cart();
+        Cart cart22=new Cart();
+        cart.addElement(proc);
+        cart2.addElement(proc2);
+        cart3.addElement(proc3);
+        cart4.addElement(proc4);
+        cart5.addElement(proc5);
+        cart6.addElement(proc6);
+        cart7.addElement(proc7);
+        cart8.addElement(proc8);
+        cart9.addElement(proc9);
+        cart10.addElement(proc10);
+        cart11.addElement(proc11);
+        cart12.addElement(proc12);
+        cart13.addElement(proc13);
+        cart14.addElement(proc14);
+        cart15.addElement(proc15);
+        cart16.addElement(proc16);
+        cart17.addElement(proc17);
+        cart18.addElement(proc18);
+        cart19.addElement(proc19);
+        cart20.addElement(proc20);
+        cart21.addElement(proc21);
+        cart22.addElement(proc22);
+
+        int time1 = 1859;
+        int time2 = 1833;
+        int time3 = 1843;
+
+        cart.setTimeOrder(time1);
+        cart3.setTimeOrder(time2);
+        cart7.setTimeOrder(time3);
+    
+        cart.setUser(u);
+        cart2.setUser(u2);
+        cart3.setUser(u3);
+        cart4.setUser(u4);
+        cart5.setUser(u5);
+        cart6.setUser(u6);
+        cart7.setUser(u7);
+        cart8.setUser(u8);
+        cart9.setUser(u9);
+        cart10.setUser(u10);
+        cart11.setUser(u11);
+        cart12.setUser(u12);
+        cart13.setUser(u13);
+        cart14.setUser(u14);
+        cart15.setUser(u15);
+        cart16.setUser(u16);
+        cart17.setUser(u17);
+        cart18.setUser(u18);
+        cart19.setUser(u19);
+        cart20.setUser(u20);
+        cart21.setUser(u21);
+        cart22.setUser(u22);
+
+        
+
+        Cart[] carts = {cart,cart2,cart3,cart4,cart5,cart6,cart7,cart8,cart9,cart10,cart11,cart12,cart13,cart14,cart15,cart16,cart17,cart18,cart19,cart20,cart21,cart22};
+        OrderCounter ohyes = new OrderCounter(carts);
+
+        int count = 0;
+        for(int i = 0; i < 22 && count < 10; i++){
+            int numberOfOrder = ohyes.giftOrders();
+            boolean test = false;
+            for(int j = 0; j < 22 && !test && count < 10; j++){
+                if(j == numberOfOrder){
+                    if(!carts[j].isGifted() && carts[j].checkGiftTime()){
+                    count++;
+                    carts[j].setGifted(true);
+                    test = true;
+                }
+            }
+        }
+    }
+
+        
+        assertEquals(10,count,0);
+        
+    }
+
 }
