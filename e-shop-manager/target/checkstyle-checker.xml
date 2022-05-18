@@ -4,7 +4,7 @@
 <module name="Checker">
     <module name="Header">
         <property name="headerFile" value="java.header"/>
-        <property name="fileExtensions" value="java"/>
+        <!--<property name="fileExtensions" value="java"/>-->
     </module>
 
     <module name="FileLength">

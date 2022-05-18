@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-e-shop-manager,it.unipd.mtss,App,8,0,0,0,2,0,2,0,2,0
+e-shop-manager,it.unipd.mtss,App,68,0,0,0,15,0,2,0,2,0
 e-shop-manager,it.unipd.mtss.model,OrderCounter,7,22,0,0,3,7,2,2,2,2
 e-shop-manager,it.unipd.mtss.model,EItem,27,35,0,5,12,14,5,7,5,3
 e-shop-manager,it.unipd.mtss.model,User,28,30,0,0,12,12,8,2,8,2

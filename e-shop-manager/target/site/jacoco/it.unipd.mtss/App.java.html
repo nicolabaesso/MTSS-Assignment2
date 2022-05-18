@@ -4,23 +4,24 @@
 ////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;
 import it.unipd.mtss.model.Cart;
+import it.unipd.mtss.model.EItem;
 
 
-<span class="nc" id="L9">public class App{</span>
+<span class="nc" id="L10">public class App{</span>
     public static void main(String[] args) {
-<span class="nc" id="L11">        EItem proc = new EItem(&quot;Processor&quot;, &quot;Amd Ryzen 5 3600&quot;, 200.00);</span>
-        EItem proc2=new EItem(&quot;Processor&quot;, &quot;Intel i5 1035G1&quot;, 300.00);
-        EItem proc3=new EItem(&quot;Processor&quot;, &quot;Amd FX-8350&quot;, 100.00);
-        EItem proc4=new EItem(&quot;Processor&quot;, &quot;Intel i9-9900k&quot;, 500.00);
-        EItem proc5=new EItem(&quot;Processor&quot;, &quot;Intel i5-750&quot;, 75.00);
-        Cart cart=new Cart();
-        cart.addElement(proc);
-        cart.addElement(proc2);
-        cart.addElement(proc3);
-        cart.addElement(proc4);
-        cart.addElement(proc5);
-        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-        System.out.println(total);
-    }
+<span class="nc" id="L12">        EItem proc = new EItem(&quot;Processor&quot;, &quot;Amd Ryzen 5 3600&quot;, 200.00);</span>
+<span class="nc" id="L13">        EItem proc2=new EItem(&quot;Processor&quot;, &quot;Intel i5 1035G1&quot;, 300.00);</span>
+<span class="nc" id="L14">        EItem proc3=new EItem(&quot;Processor&quot;, &quot;Amd FX-8350&quot;, 100.00);</span>
+<span class="nc" id="L15">        EItem proc4=new EItem(&quot;Processor&quot;, &quot;Intel i9-9900k&quot;, 500.00);</span>
+<span class="nc" id="L16">        EItem proc5=new EItem(&quot;Processor&quot;, &quot;Intel i5-750&quot;, 75.00);</span>
+<span class="nc" id="L17">        Cart cart=new Cart();</span>
+<span class="nc" id="L18">        cart.addElement(proc);</span>
+<span class="nc" id="L19">        cart.addElement(proc2);</span>
+<span class="nc" id="L20">        cart.addElement(proc3);</span>
+<span class="nc" id="L21">        cart.addElement(proc4);</span>
+<span class="nc" id="L22">        cart.addElement(proc5);</span>
+<span class="nc" id="L23">        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());</span>
+<span class="nc" id="L24">        System.out.println(total);</span>
+<span class="nc" id="L25">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
