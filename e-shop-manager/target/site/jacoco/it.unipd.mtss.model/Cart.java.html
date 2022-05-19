@@ -29,11 +29,11 @@ public class Cart implements Bill{
         }
     }
     public boolean checkGiftTime(){
-<span class="pc bpc" id="L32" title="4 of 6 branches missed.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
+<span class="pc bpc" id="L32" title="2 of 6 branches missed.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
 <span class="fc" id="L33">            return true;</span>
         }
         else{
-<span class="nc" id="L36">            return false;</span>
+<span class="fc" id="L36">            return false;</span>
         }
     }
    
@@ -87,7 +87,7 @@ public class Cart implements Bill{
 <span class="fc" id="L87">        numberOfItems++;</span>
 <span class="fc" id="L88">    }</span>
     public int getNumberOfElements(List&lt;EItem&gt; itemsOrdered){
-<span class="pc bpc" id="L90" title="1 of 2 branches missed.">        if(numberOfItems &gt; 30){</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if(numberOfItems &gt; 30){</span>
 <span class="fc" id="L91">            System.out.print(&quot;Too many elements on Cart!&quot;);</span>
         }
 <span class="fc" id="L93">        return  numberOfItems;</span>
@@ -123,7 +123,7 @@ public class Cart implements Bill{
         }
 <span class="fc bfc" id="L124" title="All 2 branches covered.">        if(price &gt; 1000.0){</span>
 <span class="fc" id="L125">         price = price-(price*0.10);</span>
-<span class="fc" id="L126">        }</span>
+        }
         else{
 <span class="fc bfc" id="L128" title="All 2 branches covered.">            if(price &lt; 10.0){</span>
 <span class="fc" id="L129">                price += 2;</span>
@@ -148,7 +148,7 @@ public class Cart implements Bill{
         }
 <span class="fc bfc" id="L149" title="All 2 branches covered.">        if(count &gt; 5){</span>
 <span class="fc" id="L150">             minProcessor = minProcessor /2;</span>
-<span class="fc" id="L151">        }</span>
+        }
         else{
 <span class="fc" id="L153">             minProcessor = 0;</span>
         }
