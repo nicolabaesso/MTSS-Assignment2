@@ -1,9 +1,0 @@
-name: Coveralls
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Coverall Coverage Report Submission
-      run: mvn coveralls:report --define repoToken=${{ secrets.TOKENBELLO }}
