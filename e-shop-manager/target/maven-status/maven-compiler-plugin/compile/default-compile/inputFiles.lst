@@ -1,7 +1,7 @@
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/EItem.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/User.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/business/exception/BillException.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/OrderCounter.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/App.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/business/Bill.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/Cart.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/EItem.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/User.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/business/Bill.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/Cart.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/App.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/model/OrderCounter.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/main/java/it/unipd/mtss/business/exception/BillException.java
