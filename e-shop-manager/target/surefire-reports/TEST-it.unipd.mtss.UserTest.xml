@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.UserTest" time="0.008" tests="18" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.UserTest" time="0.027" tests="18" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IT"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter10902633808435372745.jar /media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire 2022-05-19T22-58-43_307-jvmRun1 surefire17898666759450950179tmp surefire_017505548264995800243tmp"/>
+    <property name="sun.java.command" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter10418232785165586130.jar /media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire 2022-05-19T23-17-40_163-jvmRun1 surefire678237166757987872tmp surefire_012816608442279942242tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/test-classes:/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/classes:/home/nicola/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nicola/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter10902633808435372745.jar"/>
+    <property name="surefire.real.class.path" value="/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/target/surefire/surefirebooter10418232785165586130.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.3+7-Debian-1deb11u1"/>
     <property name="user.name" value="nicola"/>
@@ -51,17 +51,17 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="shouldSetTheCorrectAgeCustom" classname="it.unipd.mtss.UserTest" time="0"/>
+  <testcase name="shouldSetTheCorrectAgeCustom" classname="it.unipd.mtss.UserTest" time="0.001"/>
   <testcase name="shouldSetTheCorrectCustom" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetAge" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetSurnameCustom" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetAgeCustom" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldSetTheCorrectFC" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetFC" classname="it.unipd.mtss.UserTest" time="0"/>
-  <testcase name="shouldSetTheCorrectSurnameCustom" classname="it.unipd.mtss.UserTest" time="0"/>
+  <testcase name="shouldSetTheCorrectSurnameCustom" classname="it.unipd.mtss.UserTest" time="0.001"/>
   <testcase name="shouldGetName" classname="it.unipd.mtss.UserTest" time="0"/>
-  <testcase name="shouldSetTheCorrectAge" classname="it.unipd.mtss.UserTest" time="0"/>
-  <testcase name="shouldConstructUserWithParameters" classname="it.unipd.mtss.UserTest" time="0.002"/>
+  <testcase name="shouldSetTheCorrectAge" classname="it.unipd.mtss.UserTest" time="0.001"/>
+  <testcase name="shouldConstructUserWithParameters" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldSetTheCorrectSurname" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetFCCustom" classname="it.unipd.mtss.UserTest" time="0"/>
   <testcase name="shouldGetNameCustom" classname="it.unipd.mtss.UserTest" time="0"/>
