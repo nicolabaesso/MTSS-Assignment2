@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.CartTest" time="0.01" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.OrderCounterTest" time="0.006" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
@@ -56,19 +56,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="leastExpensiveProcessorShouldBeHalf2" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="leastExpensiveProcessorShouldBeHalf3" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="tooMuchItemsOnCart" classname="it.unipd.mtss.CartTest" time="0.001"/>
-  <testcase name="leastExpensiveProcessorShouldBeHalf" classname="it.unipd.mtss.CartTest" time="0.001"/>
-  <testcase name="shouldget10FreeRandomOrdersIfMinorenne" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="shouldGetADiscountIfAmountTooHigh" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="shouldGetTheCorrectAmount" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="leastExpensiveMouseShouldBeFree" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="shouldIncreaseTheAmountIfTooLow" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="sameNumberOfKeyboardAndMouse" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="shouldget10FreeRandomOrdersIfMinorenne2" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="tooMuchItemsOnCart2" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="sameNumberOfKeyboardAndMouse2" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="sameNumberOfKeyboardAndMouse3" classname="it.unipd.mtss.CartTest" time="0"/>
-  <testcase name="sameNumberOfKeyboardAndMouse4" classname="it.unipd.mtss.CartTest" time="0"/>
+  <testcase name="shouldGetCorrectConstructor" classname="it.unipd.mtss.OrderCounterTest" time="0.001"/>
+  <testcase name="setListCart" classname="it.unipd.mtss.OrderCounterTest" time="0"/>
+  <testcase name="shouldGetListCart" classname="it.unipd.mtss.OrderCounterTest" time="0"/>
 </testsuite>
