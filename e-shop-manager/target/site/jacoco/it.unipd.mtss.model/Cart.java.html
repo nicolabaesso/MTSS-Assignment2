@@ -14,195 +14,211 @@ import java.lang.Math;
 public class Cart implements Bill{
     private List&lt;EItem&gt; cart;
     private User user;
-<span class="pc" id="L17">    private int numberOfItems = 0;</span>
-<span class="pc" id="L18">    private int timeOrder = 1830;</span>
-<span class="pc" id="L19">    private int orderNumber = 0;</span>
-<span class="pc" id="L20">    private boolean isGifted = false;</span>
+<span class="fc" id="L17">    private int numberOfItems = 0;</span>
+<span class="fc" id="L18">    private int timeOrder = 1830;</span>
+<span class="fc" id="L19">    private int orderNumber = 0;</span>
+<span class="fc" id="L20">    private boolean isGifted = false;</span>
+    
+<span class="fc" id="L22">    public Cart(){</span>
+<span class="fc" id="L23">        cart = new ArrayList&lt;EItem&gt;();</span>
+<span class="fc" id="L24">        User u=new User();</span>
+<span class="fc" id="L25">        user=u;</span>
+<span class="fc" id="L26">    }</span>
 
+<span class="fc" id="L28">    public Cart(List&lt;EItem&gt; c,User u){</span>
+<span class="fc" id="L29">        cart = new ArrayList&lt;EItem&gt;();</span>
+<span class="fc" id="L30">        cart=c;</span>
+<span class="fc" id="L31">        user=u;</span>
+<span class="fc" id="L32">        numberOfItems = cart.size();</span>
+<span class="fc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public Cart(Cart c){</span>
+<span class="fc" id="L36">        cart=c.cart;</span>
+<span class="fc" id="L37">        user=c.user;</span>
+<span class="fc" id="L38">        numberOfItems=c.numberOfItems;</span>
+<span class="fc" id="L39">        timeOrder=c.timeOrder;</span>
+<span class="fc" id="L40">        orderNumber=c.orderNumber;</span>
+<span class="fc" id="L41">        isGifted=c.isGifted;</span>
+<span class="fc" id="L42">    }</span>
 
     public boolean checkTime(){
-<span class="nc bnc" id="L24" title="All 4 branches missed.">        if(timeOrder &lt;= 2359 &amp;&amp; timeOrder &gt;= 0){</span>
-<span class="nc" id="L25">            return true;</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">        if(timeOrder &gt;= 0 &amp;&amp; timeOrder &lt;=2359){</span>
+<span class="fc" id="L46">            return true;</span>
         }
         else{
-<span class="nc" id="L28">            return false;</span>
+<span class="fc" id="L49">            return false;</span>
         }
     }
     public boolean checkGiftTime(){
-<span class="pc bpc" id="L32" title="2 of 6 branches missed.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
-<span class="fc" id="L33">            return true;</span>
+<span class="pc bpc" id="L53" title="2 of 6 branches missed.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
+<span class="fc" id="L54">            return true;</span>
         }
         else{
-<span class="fc" id="L36">            return false;</span>
+<span class="fc" id="L57">            return false;</span>
         }
     }
    
     public boolean isGifted() {
-<span class="fc" id="L41">        return isGifted;</span>
+<span class="fc" id="L62">        return isGifted;</span>
     }
 
     public void setGifted(boolean isGifted) {
-<span class="fc" id="L45">        this.isGifted = isGifted;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L66">        this.isGifted = isGifted;</span>
+<span class="fc" id="L67">    }</span>
 
     public int getNumberOfItems() {
-<span class="nc" id="L49">        return numberOfItems;</span>
+<span class="fc" id="L70">        return numberOfItems;</span>
     }
 
     public void setNumberOfItems(int numberOfItems) {
-<span class="nc" id="L53">        this.numberOfItems = numberOfItems;</span>
-<span class="nc" id="L54">    }</span>
+<span class="fc" id="L74">        this.numberOfItems = numberOfItems;</span>
+<span class="fc" id="L75">    }</span>
 
     public int getTimeOrder() {
-<span class="nc" id="L57">        return timeOrder;</span>
+<span class="fc" id="L78">        return timeOrder;</span>
     }
 
     public void setTimeOrder(int timeOrder) {
-<span class="fc" id="L61">        this.timeOrder = timeOrder;</span>
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L82">        this.timeOrder = timeOrder;</span>
+<span class="fc" id="L83">    }</span>
 
-<span class="fc" id="L64">    public Cart(){</span>
-<span class="fc" id="L65">        cart = new ArrayList&lt;EItem&gt;();</span>
-<span class="fc" id="L66">        User u=new User();</span>
-<span class="fc" id="L67">        user=u;</span>
-<span class="fc" id="L68">    }</span>
-
-<span class="nc" id="L70">    public Cart(List&lt;EItem&gt; c,User u){</span>
-<span class="nc" id="L71">        cart = new ArrayList&lt;EItem&gt;();</span>
-<span class="nc" id="L72">        cart=c;</span>
-<span class="nc" id="L73">        user=u;</span>
-<span class="nc" id="L74">        numberOfItems = cart.size();</span>
-<span class="nc" id="L75">    }</span>
-
+    
     public List&lt;EItem&gt; getCart() {
-<span class="fc" id="L78">        return cart;</span>
+<span class="fc" id="L87">        return cart;</span>
     }
 
     public void setCart(List&lt;EItem&gt; cart) {
-<span class="nc" id="L82">        this.cart = cart;</span>
-<span class="nc" id="L83">    }</span>
+<span class="fc" id="L91">        this.cart = cart;</span>
+<span class="fc" id="L92">        numberOfItems=0;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        for(int i=0;i&lt;cart.size();i++){</span>
+<span class="fc" id="L94">            numberOfItems++;</span>
+        }
+<span class="fc" id="L96">    }</span>
 
     public void addElement(EItem e) {
-<span class="fc" id="L86">        cart.add(e);</span>
-<span class="fc" id="L87">        numberOfItems++;</span>
-<span class="fc" id="L88">    }</span>
+<span class="fc" id="L99">        cart.add(e);</span>
+<span class="fc" id="L100">        numberOfItems++;</span>
+<span class="fc" id="L101">    }</span>
     public int getNumberOfElements(List&lt;EItem&gt; itemsOrdered){
-<span class="fc bfc" id="L90" title="All 2 branches covered.">        if(numberOfItems &gt; 30){</span>
-<span class="fc" id="L91">            System.out.print(&quot;Too many elements on Cart!&quot;);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        if(numberOfItems &gt; 30){</span>
+<span class="fc" id="L104">            System.out.print(&quot;Too many elements on Cart!&quot;);</span>
         }
-<span class="fc" id="L93">        return  numberOfItems;</span>
+<span class="fc" id="L106">        return  numberOfItems;</span>
     }
    
 
     public User getUser() {
-<span class="fc" id="L98">        return user;</span>
+<span class="fc" id="L111">        return user;</span>
     }
 
     public void setUser(User user) {
-<span class="fc" id="L102">        this.user = user;</span>
-<span class="fc" id="L103">    }</span>
+<span class="fc" id="L115">        this.user = user;</span>
+<span class="fc" id="L116">    }</span>
 
     public int getOrderNumber() {
-<span class="nc" id="L106">        return orderNumber;</span>
+<span class="fc" id="L119">        return orderNumber;</span>
     }
 
     public void setOrderNumber(int orderNumber) {
-<span class="nc" id="L110">        this.orderNumber = orderNumber;</span>
-<span class="nc" id="L111">    }</span>
+<span class="fc" id="L123">        this.orderNumber = orderNumber;</span>
+<span class="fc" id="L124">    }</span>
 
     public double getOrderPrice(List&lt;EItem&gt; itemsOrdered, User user){
-<span class="fc" id="L114">        double price=0.0;</span>
-<span class="fc" id="L115">        int i=0;</span>
-<span class="fc" id="L116">        double minProc = getLeastExpensiveProcessor(itemsOrdered);</span>
-<span class="fc" id="L117">        double minMouse = getLeastExpensiveMouse(itemsOrdered);</span>
-<span class="fc" id="L118">        double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);</span>
-<span class="fc" id="L119">        double discount = minProc+minMouse+minItem;</span>
-<span class="fc bfc" id="L120" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc" id="L121">            price += itemsOrdered.get(i).getPrice();</span>
-<span class="fc" id="L122">            i++;</span>
+<span class="fc" id="L127">        double price=0.0;</span>
+<span class="fc" id="L128">        int i=0;</span>
+<span class="fc" id="L129">        double minProc = getLeastExpensiveProcessor(itemsOrdered);</span>
+<span class="fc" id="L130">        double minMouse = getLeastExpensiveMouse(itemsOrdered);</span>
+<span class="fc" id="L131">        double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);</span>
+<span class="fc" id="L132">        double discount = minProc+minMouse+minItem;</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc" id="L134">            price += itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L135">            i++;</span>
         }
-<span class="fc bfc" id="L124" title="All 2 branches covered.">        if(price &gt; 1000.0){</span>
-<span class="fc" id="L125">         price = price-(price*0.10);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if(price &gt; 1000.0){</span>
+<span class="fc" id="L138">         price = price-(price*0.10);</span>
         }
         else{
-<span class="fc bfc" id="L128" title="All 2 branches covered.">            if(price &lt; 10.0){</span>
-<span class="fc" id="L129">                price += 2;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            if(price == 0.0){</span>
+<span class="fc" id="L142">                price += -2;</span>
+            }
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            if(price &lt; 10.0){</span>
+<span class="fc" id="L145">                price += 2;</span>
             }
         }
-<span class="fc" id="L132">        return price-discount;</span>
+<span class="fc" id="L148">        return price-discount;</span>
     }
 
     public double getLeastExpensiveProcessor(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L136">        int count = 0;</span>
-<span class="fc" id="L137">        int i =0;</span>
-<span class="fc" id="L138">        double minProcessor = 9000;</span>
-<span class="fc bfc" id="L139" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L140" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Processor){</span>
-<span class="fc" id="L141">                count++;</span>
-<span class="fc bfc" id="L142" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minProcessor){</span>
-<span class="fc" id="L143">                    minProcessor = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L152">        int count = 0;</span>
+<span class="fc" id="L153">        int i =0;</span>
+<span class="fc" id="L154">        double minProcessor = 9000;</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Processor){</span>
+<span class="fc" id="L157">                count++;</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minProcessor){</span>
+<span class="fc" id="L159">                    minProcessor = itemsOrdered.get(i).getPrice();</span>
                 }
                
             }
-<span class="fc" id="L147">            i++;</span>
+<span class="fc" id="L163">            i++;</span>
         }
-<span class="fc bfc" id="L149" title="All 2 branches covered.">        if(count &gt; 5){</span>
-<span class="fc" id="L150">             minProcessor = minProcessor /2;</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">        if(count &gt; 5){</span>
+<span class="fc" id="L166">             minProcessor = minProcessor /2;</span>
         }
         else{
-<span class="fc" id="L153">             minProcessor = 0;</span>
+<span class="fc" id="L169">             minProcessor = 0;</span>
         }
-<span class="fc" id="L155">        return minProcessor;</span>
+<span class="fc" id="L171">        return minProcessor;</span>
 
     }
 
     public double getLeastExpensiveMouse(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L160">        int count = 0;</span>
-<span class="fc" id="L161">        int i =0;</span>
-<span class="fc" id="L162">        double minPriceMouse = 90000;</span>
-<span class="fc bfc" id="L163" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L164" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
-<span class="fc" id="L165">                count++;</span>
-<span class="fc bfc" id="L166" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minPriceMouse){</span>
-<span class="fc" id="L167">                    minPriceMouse = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L176">        int count = 0;</span>
+<span class="fc" id="L177">        int i =0;</span>
+<span class="fc" id="L178">        double minPriceMouse = 90000;</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
+<span class="fc" id="L181">                count++;</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minPriceMouse){</span>
+<span class="fc" id="L183">                    minPriceMouse = itemsOrdered.get(i).getPrice();</span>
                 }
                
             }
-<span class="fc" id="L171">            i++;</span>
+<span class="fc" id="L187">            i++;</span>
         }
-<span class="fc bfc" id="L173" title="All 2 branches covered.">        if(count &gt; 10){</span>
-<span class="fc" id="L174">            return minPriceMouse;</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">        if(count &gt; 10){</span>
+<span class="fc" id="L190">            return minPriceMouse;</span>
         }
         else{
-<span class="fc" id="L177">            return 0;</span>
+<span class="fc" id="L193">            return 0;</span>
         }
     }
 
     public double getLeastExpensiveKeyboardOrMouse(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L182">        int countMouse = 0;</span>
-<span class="fc" id="L183">        int countKeyboard = 0;</span>
-<span class="fc" id="L184">        int i =0;</span>
-<span class="fc" id="L185">        double minItem = 9000;</span>
-<span class="fc bfc" id="L186" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L187" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Keyboard){</span>
-<span class="fc" id="L188">                countKeyboard++;</span>
-<span class="fc bfc" id="L189" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
-<span class="fc" id="L190">                minItem = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L198">        int countMouse = 0;</span>
+<span class="fc" id="L199">        int countKeyboard = 0;</span>
+<span class="fc" id="L200">        int i =0;</span>
+<span class="fc" id="L201">        double minItem = 9000;</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Keyboard){</span>
+<span class="fc" id="L204">                countKeyboard++;</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
+<span class="fc" id="L206">                minItem = itemsOrdered.get(i).getPrice();</span>
                 }
             }
-<span class="fc bfc" id="L193" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
-<span class="fc" id="L194">                countMouse++;</span>
-<span class="fc bfc" id="L195" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
-<span class="fc" id="L196">                    minItem = itemsOrdered.get(i).getPrice();</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
+<span class="fc" id="L210">                countMouse++;</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
+<span class="fc" id="L212">                    minItem = itemsOrdered.get(i).getPrice();</span>
              }
             }
-<span class="fc" id="L199">            i++;</span>
+<span class="fc" id="L215">            i++;</span>
         }
-<span class="pc bpc" id="L201" title="1 of 6 branches missed.">        if(countMouse == countKeyboard &amp;&amp; countMouse != 0 &amp;&amp; countKeyboard != 0){</span>
-<span class="fc" id="L202">            return minItem;</span>
+<span class="pc bpc" id="L217" title="1 of 6 branches missed.">        if(countMouse == countKeyboard &amp;&amp; countMouse != 0 &amp;&amp; countKeyboard != 0){</span>
+<span class="fc" id="L218">            return minItem;</span>
         }
         else{
-<span class="fc" id="L205">            return 0;</span>
+<span class="fc" id="L221">            return 0;</span>
         }
 
     }

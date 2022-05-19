@@ -23,4 +23,8 @@ public class App{
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         System.out.println(total);
     }
+
+    public String getAppName(){
+        return "it.unipd.mtss.App";
+    }
 }

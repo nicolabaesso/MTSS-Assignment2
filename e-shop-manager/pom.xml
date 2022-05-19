@@ -74,9 +74,9 @@
         <groupId>org.eluder.coveralls</groupId>
         <artifactId>coveralls-maven-plugin</artifactId>
         <version>4.3.0</version>
-        <configuration>
+       <!--- <configuration>
           <repoToken>secret.TOKENBELLO</repoToken>
-        </configuration>
+        </configuration> -->
         <dependencies>
           <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -142,7 +142,7 @@
                   <excludes>
                     <exclude>*Test</exclude>
                   </excludes>
-                  <!--<limits>
+                  <limits>
                     <limit>
                       <counter>LINE</counter>
                       <value>COVEREDRATIO</value>

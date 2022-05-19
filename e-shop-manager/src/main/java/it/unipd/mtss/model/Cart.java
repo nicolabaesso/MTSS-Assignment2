@@ -18,10 +18,31 @@ public class Cart implements Bill{
     private int timeOrder = 1830;
     private int orderNumber = 0;
     private boolean isGifted = false;
+    
+    public Cart(){
+        cart = new ArrayList<EItem>();
+        User u=new User();
+        user=u;
+    }
 
+    public Cart(List<EItem> c,User u){
+        cart = new ArrayList<EItem>();
+        cart=c;
+        user=u;
+        numberOfItems = cart.size();
+    }
+
+    public Cart(Cart c){
+        cart=c.cart;
+        user=c.user;
+        numberOfItems=c.numberOfItems;
+        timeOrder=c.timeOrder;
+        orderNumber=c.orderNumber;
+        isGifted=c.isGifted;
+    }
 
     public boolean checkTime(){
-        if(timeOrder <= 2359 && timeOrder >= 0){
+        if(timeOrder >= 0 && timeOrder <=2359){
             return true;
         }
         else{
@@ -61,25 +82,17 @@ public class Cart implements Bill{
         this.timeOrder = timeOrder;
     }
 
-    public Cart(){
-        cart = new ArrayList<EItem>();
-        User u=new User();
-        user=u;
-    }
-
-    public Cart(List<EItem> c,User u){
-        cart = new ArrayList<EItem>();
-        cart=c;
-        user=u;
-        numberOfItems = cart.size();
-    }
-
+    
     public List<EItem> getCart() {
         return cart;
     }
 
     public void setCart(List<EItem> cart) {
         this.cart = cart;
+        numberOfItems=0;
+        for(int i=0;i<cart.size();i++){
+            numberOfItems++;
+        }
     }
 
     public void addElement(EItem e) {
@@ -125,6 +138,9 @@ public class Cart implements Bill{
          price = price-(price*0.10);
         }
         else{
+            if(price == 0.0){
+                price += -2;
+            }
             if(price < 10.0){
                 price += 2;
             }

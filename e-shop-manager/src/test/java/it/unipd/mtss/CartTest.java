@@ -4,7 +4,12 @@ import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.OrderCounter;
 import it.unipd.mtss.model.User;
 import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -12,6 +17,85 @@ import org.junit.Test;
  * Unit test for simple App.
  */
 public class CartTest {
+    //test for class Cart
+    @Test
+    public void shouldCreateAStandardCart(){
+        Cart c=new Cart();
+        assertEquals(0,c.getNumberOfItems(),0);
+        assertEquals(1830,c.getTimeOrder());
+        assertEquals(0,c.getOrderNumber(),0);
+        assertFalse(c.isGifted());
+    }
+    
+    @Test
+    public void shouldCreateACopyCart(){
+        Cart c=new Cart();
+        c.setTimeOrder(1630);
+        Cart f=new Cart(c);
+        assertEquals(0,f.getNumberOfItems(),0);
+        assertEquals(1630,f.getTimeOrder());
+        assertEquals(0,f.getOrderNumber(),0);
+        assertFalse(f.isGifted());
+    }
+    @Test
+    public void shouldSetCartAndUser(){
+        EItem e=new EItem();
+        List<EItem> lista=new ArrayList<EItem>();
+        lista.add(e);
+        User u=new User("D","Tony","Menego",18);
+        Cart c=new Cart(lista, u);
+        assertEquals("D",c.getUser().getFC());
+        assertEquals("Tony",c.getUser().getName());
+        assertEquals("Menego",c.getUser().getSurname());
+        assertEquals(18,c.getUser().getAge());
+        assertEquals(1,c.getNumberOfItems());
+    }
+    @Test
+    public void shouldSetCart(){
+        EItem e=new EItem();
+        List<EItem> lista=new ArrayList<EItem>();
+        lista.add(e);
+        Cart c=new Cart();
+        c.setCart(lista);
+        assertEquals(1,c.getNumberOfItems());
+    }
+    @Test
+    public void shouldBeAWrongTime(){
+        Cart c=new Cart();
+        c.setTimeOrder(2450);
+        assertFalse(c.checkTime());
+    }
+
+    @Test
+    public void shouldBeAGoodTime(){
+        Cart c=new Cart();
+        c.setTimeOrder(1630);
+        assertTrue(c.checkTime());
+    }
+
+    @Test
+    public void shouldSetNumberOfItems(){
+        EItem e=new EItem();
+        List<EItem> lista=new ArrayList<EItem>();
+        lista.add(e);
+        Cart c=new Cart();
+        c.setCart(lista);
+        c.setNumberOfItems(1);
+        assertEquals(1,c.getNumberOfItems());
+    }
+
+    @Test
+    public void shouldSetOrderNumber(){
+        EItem e=new EItem();
+        List<EItem> lista=new ArrayList<EItem>();
+        lista.add(e);
+        Cart c=new Cart();
+        c.setCart(lista);
+        c.setOrderNumber(5);
+        assertEquals(5,c.getOrderNumber());
+    }
+
+    //Test for function getOrderPrice
     @Test
     public void shouldGetTheCorrectAmount(){
         EItem mother=new EItem("Motherboard", "ASusanna Potente X45T", 126.00);
@@ -24,6 +108,14 @@ public class CartTest {
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         assertEquals(169.00,total,0);
     }
+
+    @Test
+    public void shouldGetTheCorrectAmount_EmptyCart(){
+        Cart cart=new Cart();
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(0,total,0);
+    }
+
     @Test
     public void leastExpensiveProcessorShouldBeHalf(){
         EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
@@ -40,8 +132,45 @@ public class CartTest {
         cart.addElement(proc5);
         cart.addElement(proc6);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-      
         assertEquals(1092.00,total,0);
+    }
+
+    @Test
+    public void leastExpensiveProcessorShouldBeHalf_TotalZero(){
+        EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 0.00);
+        EItem proc2=new EItem("Processor", "Intel i5 1035G1", 0.00);
+        EItem proc3=new EItem("Processor", "Amd FX-8350", 0.00);
+        EItem proc4=new EItem("Processor", "Intel i9-9900k", 0.00);
+        EItem proc5=new EItem("Processor", "Intel i5-750", 0.00);
+        EItem proc6=new EItem("Processor", "Intel Potato but better", 0.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        cart.addElement(proc3);
+        cart.addElement(proc4);
+        cart.addElement(proc5);
+        cart.addElement(proc6);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(0.0,total,0);
+    }
+
+    @Test
+    public void leastExpensiveProcessorShouldBeHalf_SamePrice(){
+        EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 10.00);
+        EItem proc2=new EItem("Processor", "Intel i5 1035G1", 10.00);
+        EItem proc3=new EItem("Processor", "Amd FX-8350", 10.00);
+        EItem proc4=new EItem("Processor", "Intel i9-9900k", 10.00);
+        EItem proc5=new EItem("Processor", "Intel i5-750", 10.00);
+        EItem proc6=new EItem("Processor", "Intel Potato but better", 10.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        cart.addElement(proc3);
+        cart.addElement(proc4);
+        cart.addElement(proc5);
+        cart.addElement(proc6);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(55.00,total,0);
     }
 
     @Test
@@ -74,45 +203,37 @@ public class CartTest {
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         assertEquals(491.00,total,0);
     }
-    @Test
-    public void leastExpensiveProcessorShouldBeHalf2(){
-    EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 0.00);
-    EItem proc2=new EItem("Processor", "Intel i5 1035G1", 0.00);
-    EItem proc3=new EItem("Processor", "Amd FX-8350", 0.00);
-    EItem proc4=new EItem("Processor", "Intel i9-9900k", 0.00);
-    EItem proc5=new EItem("Processor", "Intel i5-750", 0.00);
-    EItem proc6=new EItem("Processor", "Intel Potato but better", 0.00);
-    Cart cart=new Cart();
-    cart.addElement(proc);
-    cart.addElement(proc2);
-    cart.addElement(proc3);
-    cart.addElement(proc4);
-    cart.addElement(proc5);
-    cart.addElement(proc6);
-    double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-  
-    assertEquals(2.00,total,0);
-}
 
-@Test
-    public void leastExpensiveProcessorShouldBeHalf3(){
-    EItem proc = new EItem("Processor", "Amd Ryzen 5 3600", 10.00);
-    EItem proc2=new EItem("Processor", "Intel i5 1035G1", 10.00);
-    EItem proc3=new EItem("Processor", "Amd FX-8350", 10.00);
-    EItem proc4=new EItem("Processor", "Intel i9-9900k", 10.00);
-    EItem proc5=new EItem("Processor", "Intel i5-750", 10.00);
-    EItem proc6=new EItem("Processor", "Intel Potato but better", 10.00);
-    Cart cart=new Cart();
-    cart.addElement(proc);
-    cart.addElement(proc2);
-    cart.addElement(proc3);
-    cart.addElement(proc4);
-    cart.addElement(proc5);
-    cart.addElement(proc6);
-    double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-  
-    assertEquals(55.00,total,0);
-}
+    @Test
+    public void leastExpensiveMouseShouldBeFree_SamePrice(){
+        EItem proc = new EItem("Mouse", "Gigino il topolino", 10.00);
+        EItem proc2=new EItem("Mouse", "Mouse Lidl Deluxe", 10.00);
+        EItem proc3=new EItem("Mouse", "Mouse Lavico", 10.00);
+        EItem proc4=new EItem("Mouse", "Mouse verde vecchio", 10.00);
+        EItem proc5=new EItem("Mouse", "Mouse standard", 10.00);
+        EItem proc6= new EItem("Mouse", "Mini Mouse", 10.00);
+        EItem proc7=new EItem("Mouse", "Mini Mouse Apple", 10.00);
+        EItem proc8=new EItem("Mouse", "Mouse Apple", 10.00);
+        EItem proc9=new EItem("Mouse", "Mouse leggermente usurato", 10.00);
+        EItem proc10=new EItem("Mouse", "Mouse Apple distrutto", 10.00);
+        EItem proc11 = new EItem("Mouse", "Mouse Asusanna", 10.00);
+        EItem proc12=new EItem("Mouse", "Mouse rosa", 10.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        cart.addElement(proc3);
+        cart.addElement(proc4);
+        cart.addElement(proc5);
+        cart.addElement(proc6);
+        cart.addElement(proc7);
+        cart.addElement(proc8);
+        cart.addElement(proc9);
+        cart.addElement(proc10);
+        cart.addElement(proc11);
+        cart.addElement(proc12);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(110.00,total,0);
+    }
 
     @Test
     public void sameNumberOfKeyboardAndMouse(){
@@ -126,12 +247,11 @@ public class CartTest {
         cart.addElement(proc3);
         cart.addElement(proc4);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-      
         assertEquals(224.00,total,0);
     }
 
     @Test
-    public void sameNumberOfKeyboardAndMouse2(){
+    public void sameNumberOfKeyboardAndMouse_DifferentAmountOfMousesAndKeyboards(){
         EItem proc = new EItem("Keyboard", "Fnatic ministreak", 100.00);
         EItem proc2=new EItem("Mouse", "Asus strix", 25.00);
         EItem proc3=new EItem("Keyboard", "Roccat ax1", 69.00);
@@ -140,11 +260,10 @@ public class CartTest {
         cart.addElement(proc2);
         cart.addElement(proc3);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-      
         assertEquals(194.00,total,0);
     }
     @Test
-    public void sameNumberOfKeyboardAndMouse3(){
+    public void sameNumberOfKeyboardAndMouse_SamePrice(){
         EItem proc = new EItem("Keyboard", "Fnatic ministreak", 0.00);
         EItem proc2=new EItem("Mouse", "Asus strix", 0.00);
         EItem proc3=new EItem("Keyboard", "Roccat ax1", 0.00);
@@ -155,12 +274,11 @@ public class CartTest {
         cart.addElement(proc3);
         cart.addElement(proc4);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-      
-        assertEquals(2.00,total,0);
+        assertEquals(0.0,total,0);
     }
 
     @Test
-    public void sameNumberOfKeyboardAndMouse4(){
+    public void sameNumberOfKeyboardAndMouse_MoreKeyboardsThanMouse(){
         EItem proc = new EItem("Keyboard", "Fnatic ministreak", 10.00);
         EItem proc2 = new EItem("Keyboard", "Fnatic ministreak", 20.00);
         EItem proc3 = new EItem("Keyboard", "Fnatic ministreak", 30.00);
@@ -183,7 +301,6 @@ public class CartTest {
         cart.addElement(proc9);
         cart.addElement(proc10);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
-      
         assertEquals(550.00,total,0);
     }
 
@@ -210,6 +327,17 @@ public class CartTest {
         cart.addElement(proc9);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         assertEquals(1564.20,total,0);
+    }
+
+    @Test
+    public void shouldGetADiscountIfAmountTooHigh_JustAbout1000(){
+        EItem proc = new EItem("Processor", "Amd FX Fornetto", 500.00);
+        EItem proc2=new EItem("Motherboard", "MSI X453G", 500.00);
+        Cart cart=new Cart();
+        cart.addElement(proc);
+        cart.addElement(proc2);
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(1000.00,total,0);
     }
 
     @Test
@@ -246,7 +374,6 @@ public class CartTest {
         EItem proc30=new EItem("Processor", "Intel i5-750", 75.00);
         EItem proc31= new EItem("Processor", "Amd Ryzen 5 3600", 200.00);
         EItem proc32=new EItem("Processor", "Intel i5 1035G1", 300.00);
-        
         Cart cart=new Cart();
         cart.addElement(proc);
         cart.addElement(proc2);
@@ -280,7 +407,6 @@ public class CartTest {
         cart.addElement(proc30);
         cart.addElement(proc31);
         cart.addElement(proc32);
-        
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         int numberOfElements = cart.getNumberOfElements(cart.getCart());
         assertEquals(32,numberOfElements,0);
@@ -318,7 +444,6 @@ public class CartTest {
         EItem proc28=new EItem("Processor", "Amd FX-8350", 100.00);
         EItem proc29=new EItem("Processor", "Intel i9-9900k", 500.00);
         EItem proc30=new EItem("Processor", "Intel i5-750", 75.00);
-        
         Cart cart=new Cart();
         cart.addElement(proc);
         cart.addElement(proc2);
@@ -350,8 +475,6 @@ public class CartTest {
         cart.addElement(proc28);
         cart.addElement(proc29);
         cart.addElement(proc30);
-
-        
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         int numberOfElements = cart.getNumberOfElements(cart.getCart());
         assertEquals(30,numberOfElements,0);
@@ -367,6 +490,13 @@ public class CartTest {
         cart.addElement(proc2);
         double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
         assertEquals(11,total,0);
+    }
+
+    @Test
+    public void shouldIncreaseTheAmountIfTooLow_EmptyCart(){
+        Cart cart=new Cart();
+        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());
+        assertEquals(0.0,total,0);
     }
 
     @Test
@@ -606,7 +736,6 @@ public class CartTest {
         cart20.addElement(proc20);
         cart21.addElement(proc21);
         cart22.addElement(proc22);
-
        int time1 = 1901;
        int time2 = 1902;
        int time3 = 1903;
@@ -629,8 +758,6 @@ public class CartTest {
        int time20 = 1920;
        int time21 = 1921;
        int time22 = 1922;
-
-
         cart.setTimeOrder(time1);
         cart2.setTimeOrder(time2);
         cart3.setTimeOrder(time3);
@@ -653,7 +780,6 @@ public class CartTest {
         cart20.setTimeOrder(time20);
         cart21.setTimeOrder(time21);
         cart22.setTimeOrder(time22);
-    
         cart.setUser(u);
         cart2.setUser(u2);
         cart3.setUser(u3);
@@ -676,12 +802,8 @@ public class CartTest {
         cart20.setUser(u20);
         cart21.setUser(u21);
         cart22.setUser(u22);
-
-        
-
         Cart[] carts = {cart,cart2,cart3,cart4,cart5,cart6,cart7,cart8,cart9,cart10,cart11,cart12,cart13,cart14,cart15,cart16,cart17,cart18,cart19,cart20,cart21,cart22};
         OrderCounter ohyes = new OrderCounter(carts);
-
         int count = 0;
         for(int i = 0; i < 22 && count < 10; i++){
             int numberOfOrder = ohyes.giftOrders();
@@ -695,9 +817,7 @@ public class CartTest {
                 }
             }
         }
-    }
-
-        
+    } 
         assertEquals(0,count,0);
 }
 

@@ -12,6 +12,9 @@ import org.junit.Test;
  * Unit test for simple App.
  */
 public class AppTest {
-    
-
+    @Test
+    public void createApp(){
+        App a=new App();
+        assertEquals("it.unipd.mtss.App",a.getAppName());
+    }
 }

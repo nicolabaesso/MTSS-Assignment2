@@ -7,7 +7,7 @@ import it.unipd.mtss.model.Cart;
 import it.unipd.mtss.model.EItem;
 
 
-<span class="nc" id="L10">public class App{</span>
+<span class="fc" id="L10">public class App{</span>
     public static void main(String[] args) {
 <span class="nc" id="L12">        EItem proc = new EItem(&quot;Processor&quot;, &quot;Amd Ryzen 5 3600&quot;, 200.00);</span>
 <span class="nc" id="L13">        EItem proc2=new EItem(&quot;Processor&quot;, &quot;Intel i5 1035G1&quot;, 300.00);</span>
@@ -23,5 +23,9 @@ import it.unipd.mtss.model.EItem;
 <span class="nc" id="L23">        double total=cart.getOrderPrice(cart.getCart(), cart.getUser());</span>
 <span class="nc" id="L24">        System.out.println(total);</span>
 <span class="nc" id="L25">    }</span>
+
+    public String getAppName(){
+<span class="fc" id="L28">        return &quot;it.unipd.mtss.App&quot;;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
