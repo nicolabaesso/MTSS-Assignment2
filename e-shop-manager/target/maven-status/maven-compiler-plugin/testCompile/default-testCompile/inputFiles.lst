@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/EItemTest.java
-/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/UserTest.java
-/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/CartTest.java
-/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/OrderCounterTest.java
-/media/nicola/E0362DB4362D8C9A/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/AppTest.java
-=======
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/AppTest.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/CartTest.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/OrderCounterTest.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/EItemTest.java
-/home/giovannit/MTSS-Assignment2/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/UserTest.java
->>>>>>> 8e3b64d19fd12b9d053033bfd7799d4c6902f965
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/CartTest.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/UserTest.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/AppTest.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/EItemTest.java
+/home/nicola/Scrivania/Universita/Secondo_Anno/MTSS/MTSS-Assignment2/e-shop-manager/src/test/java/it/unipd/mtss/OrderCounterTest.java

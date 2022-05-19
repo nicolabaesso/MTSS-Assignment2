@@ -142,13 +142,13 @@
                   <excludes>
                     <exclude>*Test</exclude>
                   </excludes>
-                  <limits>
+                  <!--<limits>
                     <limit>
                       <counter>LINE</counter>
                       <value>COVEREDRATIO</value>
                       <minimum>85%</minimum>
                     </limit>
-                  </limits>
+                  </limits>-->
                 </rule>
               </rules>
             </configuration>
