@@ -17,4 +17,12 @@ public class AppTest {
         App a=new App();
         assertEquals("it.unipd.mtss.App",a.getAppName());
     }
+
+    @Test
+    public void testMain(){
+        App a=new App();
+        String[] args={""};
+        a.main(args);
+        assertEquals("it.unipd.mtss.App",a.getAppName());
+    }
 }

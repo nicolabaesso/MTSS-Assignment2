@@ -124,28 +124,36 @@ public class Cart implements Bill{
     }
 
     public double getOrderPrice(List<EItem> itemsOrdered, User user){
-        double price=0.0;
-        int i=0;
-        double minProc = getLeastExpensiveProcessor(itemsOrdered);
-        double minMouse = getLeastExpensiveMouse(itemsOrdered);
-        double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);
-        double discount = minProc+minMouse+minItem;
-        while(i<itemsOrdered.size()){
-            price += itemsOrdered.get(i).getPrice();
-            i++;
-        }
-        if(price > 1000.0){
-         price = price-(price*0.10);
-        }
-        else{
-            if(price == 0.0){
-                price += -2;
+        try{
+            double price=0.0;
+            int i=0;
+            int nElements=0;
+            nElements=getNumberOfElements(itemsOrdered);
+            if(nElements>30){
+                throw new BillException("Too many items on the cart.");
             }
-            if(price < 10.0){
-                price += 2;
+            double minProc = getLeastExpensiveProcessor(itemsOrdered);
+            double minMouse = getLeastExpensiveMouse(itemsOrdered);
+            double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);
+            double discount = minProc+minMouse+minItem;
+            while(i<nElements){
+                price += itemsOrdered.get(i).getPrice();
+                i++;
             }
+            if(price > 1000.0){
+            price = price-(price*0.10);
+            }
+            else{
+                if(price > 0.0 && price < 10.0){
+                    price += 2;
+                }
+            }
+            return price-discount;
         }
-        return price-discount;
+        catch(BillException e){
+            System.out.println(e.toString());
+            return -1.0;
+        }
     }
 
     public double getLeastExpensiveProcessor(List<EItem> itemsOrdered){

@@ -42,7 +42,7 @@ public class Cart implements Bill{
 <span class="fc" id="L42">    }</span>
 
     public boolean checkTime(){
-<span class="pc bpc" id="L45" title="1 of 4 branches missed.">        if(timeOrder &gt;= 0 &amp;&amp; timeOrder &lt;=2359){</span>
+<span class="fc bfc" id="L45" title="All 4 branches covered.">        if(timeOrder &gt;= 0 &amp;&amp; timeOrder &lt;=2359){</span>
 <span class="fc" id="L46">            return true;</span>
         }
         else{
@@ -50,7 +50,7 @@ public class Cart implements Bill{
         }
     }
     public boolean checkGiftTime(){
-<span class="pc bpc" id="L53" title="2 of 6 branches missed.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
+<span class="fc bfc" id="L53" title="All 6 branches covered.">        if(timeOrder &gt;= 1800 &amp;&amp; timeOrder &lt;= 1859 || timeOrder == 1900){</span>
 <span class="fc" id="L54">            return true;</span>
         }
         else{
@@ -124,101 +124,109 @@ public class Cart implements Bill{
 <span class="fc" id="L124">    }</span>
 
     public double getOrderPrice(List&lt;EItem&gt; itemsOrdered, User user){
-<span class="fc" id="L127">        double price=0.0;</span>
-<span class="fc" id="L128">        int i=0;</span>
-<span class="fc" id="L129">        double minProc = getLeastExpensiveProcessor(itemsOrdered);</span>
-<span class="fc" id="L130">        double minMouse = getLeastExpensiveMouse(itemsOrdered);</span>
-<span class="fc" id="L131">        double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);</span>
-<span class="fc" id="L132">        double discount = minProc+minMouse+minItem;</span>
-<span class="fc bfc" id="L133" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc" id="L134">            price += itemsOrdered.get(i).getPrice();</span>
-<span class="fc" id="L135">            i++;</span>
-        }
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        if(price &gt; 1000.0){</span>
-<span class="fc" id="L138">         price = price-(price*0.10);</span>
-<span class="fc" id="L139">        }</span>
-        else{
-<span class="fc bfc" id="L141" title="All 2 branches covered.">            if(price == 0.0){</span>
-<span class="fc" id="L142">                price += -2;</span>
+        try{
+<span class="fc" id="L128">            double price=0.0;</span>
+<span class="fc" id="L129">            int i=0;</span>
+<span class="fc" id="L130">            int nElements=0;</span>
+<span class="fc" id="L131">            nElements=getNumberOfElements(itemsOrdered);</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">            if(nElements&gt;30){</span>
+<span class="fc" id="L133">                throw new BillException(&quot;Too many items on the cart.&quot;);</span>
             }
-<span class="fc bfc" id="L144" title="All 2 branches covered.">            if(price &lt; 10.0){</span>
-<span class="fc" id="L145">                price += 2;</span>
+<span class="fc" id="L135">            double minProc = getLeastExpensiveProcessor(itemsOrdered);</span>
+<span class="fc" id="L136">            double minMouse = getLeastExpensiveMouse(itemsOrdered);</span>
+<span class="fc" id="L137">            double minItem = getLeastExpensiveKeyboardOrMouse(itemsOrdered);</span>
+<span class="fc" id="L138">            double discount = minProc+minMouse+minItem;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            while(i&lt;nElements){</span>
+<span class="fc" id="L140">                price += itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L141">                i++;</span>
             }
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            if(price &gt; 1000.0){</span>
+<span class="fc" id="L144">            price = price-(price*0.10);</span>
+<span class="fc" id="L145">            }</span>
+            else{
+<span class="fc bfc" id="L147" title="All 4 branches covered.">                if(price &gt; 0.0 &amp;&amp; price &lt; 10.0){</span>
+<span class="fc" id="L148">                    price += 2;</span>
+                }
+            }
+<span class="fc" id="L151">            return price-discount;</span>
         }
-<span class="fc" id="L148">        return price-discount;</span>
+<span class="fc" id="L153">        catch(BillException e){</span>
+<span class="fc" id="L154">            System.out.println(e.toString());</span>
+<span class="fc" id="L155">            return -1.0;</span>
+        }
     }
 
     public double getLeastExpensiveProcessor(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L152">        int count = 0;</span>
-<span class="fc" id="L153">        int i =0;</span>
-<span class="fc" id="L154">        double minProcessor = 9000;</span>
-<span class="fc bfc" id="L155" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L156" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Processor){</span>
-<span class="fc" id="L157">                count++;</span>
-<span class="fc bfc" id="L158" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minProcessor){</span>
-<span class="fc" id="L159">                    minProcessor = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L160">        int count = 0;</span>
+<span class="fc" id="L161">        int i =0;</span>
+<span class="fc" id="L162">        double minProcessor = 9000;</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Processor){</span>
+<span class="fc" id="L165">                count++;</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minProcessor){</span>
+<span class="fc" id="L167">                    minProcessor = itemsOrdered.get(i).getPrice();</span>
                 }
                
             }
-<span class="fc" id="L163">            i++;</span>
+<span class="fc" id="L171">            i++;</span>
         }
-<span class="fc bfc" id="L165" title="All 2 branches covered.">        if(count &gt; 5){</span>
-<span class="fc" id="L166">             minProcessor = minProcessor /2;</span>
-<span class="fc" id="L167">        }</span>
+<span class="fc bfc" id="L173" title="All 2 branches covered.">        if(count &gt; 5){</span>
+<span class="fc" id="L174">             minProcessor = minProcessor /2;</span>
+<span class="fc" id="L175">        }</span>
         else{
-<span class="fc" id="L169">             minProcessor = 0;</span>
+<span class="fc" id="L177">             minProcessor = 0;</span>
         }
-<span class="fc" id="L171">        return minProcessor;</span>
+<span class="fc" id="L179">        return minProcessor;</span>
 
     }
 
     public double getLeastExpensiveMouse(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L176">        int count = 0;</span>
-<span class="fc" id="L177">        int i =0;</span>
-<span class="fc" id="L178">        double minPriceMouse = 90000;</span>
-<span class="fc bfc" id="L179" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L180" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
-<span class="fc" id="L181">                count++;</span>
-<span class="fc bfc" id="L182" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minPriceMouse){</span>
-<span class="fc" id="L183">                    minPriceMouse = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L184">        int count = 0;</span>
+<span class="fc" id="L185">        int i =0;</span>
+<span class="fc" id="L186">        double minPriceMouse = 90000;</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
+<span class="fc" id="L189">                count++;</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minPriceMouse){</span>
+<span class="fc" id="L191">                    minPriceMouse = itemsOrdered.get(i).getPrice();</span>
                 }
                
             }
-<span class="fc" id="L187">            i++;</span>
+<span class="fc" id="L195">            i++;</span>
         }
-<span class="fc bfc" id="L189" title="All 2 branches covered.">        if(count &gt; 10){</span>
-<span class="fc" id="L190">            return minPriceMouse;</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">        if(count &gt; 10){</span>
+<span class="fc" id="L198">            return minPriceMouse;</span>
         }
         else{
-<span class="fc" id="L193">            return 0;</span>
+<span class="fc" id="L201">            return 0;</span>
         }
     }
 
     public double getLeastExpensiveKeyboardOrMouse(List&lt;EItem&gt; itemsOrdered){
-<span class="fc" id="L198">        int countMouse = 0;</span>
-<span class="fc" id="L199">        int countKeyboard = 0;</span>
-<span class="fc" id="L200">        int i =0;</span>
-<span class="fc" id="L201">        double minItem = 9000;</span>
-<span class="fc bfc" id="L202" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
-<span class="fc bfc" id="L203" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Keyboard){</span>
-<span class="fc" id="L204">                countKeyboard++;</span>
-<span class="fc bfc" id="L205" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
-<span class="fc" id="L206">                minItem = itemsOrdered.get(i).getPrice();</span>
+<span class="fc" id="L206">        int countMouse = 0;</span>
+<span class="fc" id="L207">        int countKeyboard = 0;</span>
+<span class="fc" id="L208">        int i =0;</span>
+<span class="fc" id="L209">        double minItem = 9000;</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">        while(i&lt;itemsOrdered.size()){</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Keyboard){</span>
+<span class="fc" id="L212">                countKeyboard++;</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
+<span class="fc" id="L214">                minItem = itemsOrdered.get(i).getPrice();</span>
                 }
             }
-<span class="fc bfc" id="L209" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
-<span class="fc" id="L210">                countMouse++;</span>
-<span class="fc bfc" id="L211" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
-<span class="fc" id="L212">                    minItem = itemsOrdered.get(i).getPrice();</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">            if(itemsOrdered.get(i).getType() == itemType.Mouse){</span>
+<span class="fc" id="L218">                countMouse++;</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">                if(itemsOrdered.get(i).getPrice() &lt; minItem){</span>
+<span class="fc" id="L220">                    minItem = itemsOrdered.get(i).getPrice();</span>
              }
             }
-<span class="fc" id="L215">            i++;</span>
+<span class="fc" id="L223">            i++;</span>
         }
-<span class="pc bpc" id="L217" title="1 of 6 branches missed.">        if(countMouse == countKeyboard &amp;&amp; countMouse != 0 &amp;&amp; countKeyboard != 0){</span>
-<span class="fc" id="L218">            return minItem;</span>
+<span class="pc bpc" id="L225" title="1 of 6 branches missed.">        if(countMouse == countKeyboard &amp;&amp; countMouse != 0 &amp;&amp; countKeyboard != 0){</span>
+<span class="fc" id="L226">            return minItem;</span>
         }
         else{
-<span class="fc" id="L221">            return 0;</span>
+<span class="fc" id="L229">            return 0;</span>
         }
 
     }

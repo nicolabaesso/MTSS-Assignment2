@@ -46,7 +46,25 @@ public class EItem {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name=="Default"){
+            switch(this.type) {
+                case Processor:
+                    this.name = "Generic CPU";                    
+                break;
+                case Motherboard:
+                    this.name = "Generic Motherboard";
+                    break;
+                case Mouse:
+                    this.name = "Generic Mouse";
+                    break;
+                case Keyboard:
+                    this.name = "Generic Keyboard";
+                    default:
+            }
+        }
+        else{
+            this.name = name;
+        }
     }
 
     public double getPrice() {
@@ -54,6 +72,11 @@ public class EItem {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if(price < 0.0){
+            this.price=0.0;
+        }
+        else{
+            this.price = price;
+        }
     }
 }

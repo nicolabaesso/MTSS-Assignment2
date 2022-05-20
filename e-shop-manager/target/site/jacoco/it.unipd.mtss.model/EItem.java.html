@@ -46,15 +46,38 @@ public class EItem {
     }
 
     public void setName(String name) {
-<span class="fc" id="L49">        this.name = name;</span>
-<span class="fc" id="L50">    }</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if(name==&quot;Default&quot;){</span>
+<span class="pc bpc" id="L50" title="1 of 5 branches missed.">            switch(this.type) {</span>
+                case Processor:
+<span class="fc" id="L52">                    this.name = &quot;Generic CPU&quot;;                    </span>
+<span class="fc" id="L53">                break;</span>
+                case Motherboard:
+<span class="fc" id="L55">                    this.name = &quot;Generic Motherboard&quot;;</span>
+<span class="fc" id="L56">                    break;</span>
+                case Mouse:
+<span class="fc" id="L58">                    this.name = &quot;Generic Mouse&quot;;</span>
+<span class="fc" id="L59">                    break;</span>
+                case Keyboard:
+<span class="fc" id="L61">                    this.name = &quot;Generic Keyboard&quot;;</span>
+                    default:
+            }
+<span class="fc" id="L64">        }</span>
+        else{
+<span class="fc" id="L66">            this.name = name;</span>
+        }
+<span class="fc" id="L68">    }</span>
 
     public double getPrice() {
-<span class="fc" id="L53">        return price;</span>
+<span class="fc" id="L71">        return price;</span>
     }
 
     public void setPrice(double price) {
-<span class="fc" id="L57">        this.price = price;</span>
-<span class="fc" id="L58">    }</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if(price &lt; 0.0){</span>
+<span class="fc" id="L76">            this.price=0.0;</span>
+<span class="fc" id="L77">        }</span>
+        else{
+<span class="fc" id="L79">            this.price = price;</span>
+        }
+<span class="fc" id="L81">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
